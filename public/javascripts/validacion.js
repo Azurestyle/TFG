@@ -41,6 +41,15 @@ $(function(){
             prompt : 'Por favor ingrese un conductor'
           }
         ]
+      },
+      idmonitor : {
+        identifier : 'idmonitor',
+        rules : [
+          {
+            type : 'empty',
+            prompt : 'Por favor ingrese un monitor'
+          }
+        ]
       }
 
   });

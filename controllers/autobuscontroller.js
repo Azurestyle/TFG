@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-
+var dateFormat = require('dateformat');
 //autobus controller
 
 module.exports = {
@@ -26,7 +26,24 @@ module.exports = {
   },
 
   postNuevoAutobus : function(req, res, next){
-    console.log(req.body);
+    var fechaactual = new Date();
+    var fecha = dateFormat(fechaactual, 'yyyy-mm-dd h:MM:ss');
 
+    var autobus = {
+      matricula : req.body.matricula,
+      idruta : req.body.idruta,
+      capacidad : req.body.capacidad,
+      idconductor : req.body.idconductor,
+      idmonitor : req.body.idmonitor
+    }
+    var config = require('.././database/config');
+    var db = mysql.createConnection(config);
+    db.connect();
+    db.query('INSERT INTO autobus SET ?', autobus, function(err,rows,fields){
+      if(err) throw err;
+      db.end();
+    });
+    res.render('autobus/nuevo', {info : 'Autobus creado correctamente'});
+    // console.log(autobus);
 }
 }

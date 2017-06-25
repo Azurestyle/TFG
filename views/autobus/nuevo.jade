@@ -4,7 +4,7 @@ block content
   include ../templates/nav
   div(class=['ui','container','grid','stackable'])
     div(class=['ten','wide','column'])
-      h2(class=['ui','header','blue','dividing'])= 'Crear Producto'
+      h2(class=['ui','header','blue','dividing'])= 'Crear Autobus'
       
       div(class='form-nuevoautobus')
         form(class=['ui','form'] action='/crearautobus' method='post')
@@ -21,6 +21,15 @@ block content
             div(class=['ui','field'])
               label(for='idconductor')= 'Conductor'
               input(type='text' name="idconductor" placeholder='Conductor')
+            div(class=['ui','field'])
+              label(for='idmonitor')= 'Monitor'
+              input(type='text' name="idmonitor" placeholder='Monitor')
           button(class=['ui','button','basic','black'])= 'Crear Autobus'
           div(class=['ui','message','error'])
+      
+      if info != undefined
+        div(class=['ui','message','success'])
+          i(class=['close','icon'])
+          div(class='header')= 'Autobus registrado'
+          p= info
   script(src='/javascripts/validacion.js')
