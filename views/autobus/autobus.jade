@@ -1,0 +1,29 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['sixteen','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Lista de autobuses'
+      
+      table(class=['ui','table','celled'] id='tbl-autobus')
+        thead
+          tr
+            th= 'ID'
+            th= 'Matricula'
+            th= 'Ruta'
+            th= 'Capacidad'
+            th= 'Conductor'
+            th= 'Monitor'
+            th= 'Acciones'
+            
+        tbody
+          each bus in autobus
+            tr
+              td= bus.id
+              td= bus.matricula
+              td= bus.idruta
+              td= bus.capacidad
+              td= bus.idconductor
+              td= bus.idmonitor
+              td= 'Eliminar Modificar'
