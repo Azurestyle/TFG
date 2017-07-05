@@ -20,10 +20,17 @@ block content
         tbody
           each bus in autobus
             tr
-              td= bus.id
+              td(id='id')= bus.id
               td= bus.matricula
               td= bus.idruta
               td= bus.capacidad
               td= bus.idconductor
               td= bus.idmonitor
-              td= 'Eliminar Modificar'
+              td
+                a(class=['ui button basic icon '] href='/modificar/'+bus.id data-inverted='' data-tooltip='Modificar' data-position='top center')
+                  i(class=['write icon blue'])
+                  
+                a(class=['ui button basic icon '] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                  i(class=['trash icon red'])
+                  
+  script(src="/javascripts/autobus.js")
