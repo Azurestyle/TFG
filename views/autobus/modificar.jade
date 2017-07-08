@@ -14,16 +14,28 @@ block content
           div(class=['ui','two','fields'])
             div(class=['ui','field'])
               label(for='idruta')= 'Ruta'
-              input(type='text' name="idruta" placeholder='Ruta' value=autobus[0].idruta)
+              select(class=['ui', 'dropdown'] name="idruta")
+                option(value=autobus[0].idruta selected hidden)= autobus[0].nombreRuta
+                each ru in ruta
+                  option(value=ru.idruta)= ru.nombreRuta
+              //- input(type='text' name="idruta" placeholder='Ruta' value=autobus[0].idruta)
             div(class=['ui','field'])
               label(for='capacidad')= 'Capacidad'
               input(type='text' name="capacidad" placeholder='Capacidad' value=autobus[0].capacidad)
             div(class=['ui','field'])
               label(for='idconductor')= 'Conductor'
-              input(type='text' name="idconductor" placeholder='Conductor' value=autobus[0].idconductor)
+              select(class=['ui', 'dropdown'] name="idconductor")
+                option(value=autobus[0].idconductor selected hidden)= autobus[0].nombreConductor
+                each con in conductor
+                  option(value=con.idconductor)= con.nombreConductor
+              //- input(type='text' name="idconductor" placeholder='Conductor' value=autobus[0].idconductor)
             div(class=['ui','field'])
               label(for='idmonitor')= 'Monitor'
-              input(type='text' name="idmonitor" placeholder='Monitor' value=autobus[0].idmonitor)
+              select(class=['ui', 'dropdown'] name="idmonitor")
+                option(value=autobus[0].idmonitor selected hidden)= autobus[0].nombreMonitor
+                each mon in monitor
+                  option(value=mon.idmonitor)= mon.nombreMonitor
+              //- input(type='text' name="idmonitor" placeholder='Monitor' value=autobus[0].idmonitor)
               input(type='hidden' name="id" value=autobus[0].id)
           button(class=['ui','button','basic','black'])= 'Modificar Autobus'
           div(class=['ui','message','error'])

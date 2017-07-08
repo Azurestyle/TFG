@@ -11,9 +11,10 @@ module.exports = {
     db.connect();
 
     var autobus = null;
-    db.query('SELECT * FROM autobus', function(err, rows, fields){
+    db.query('SELECT * FROM autobus a,conductor c, monitor m, ruta r where a.idconductor = c.idconductor and a.idmonitor = m.idmonitor and a.idruta = r.idruta', function(err, rows, fields){
         if(err) throw err;
         autobus = rows;
+        // console.log(autobus);
         db.end();
         //renderizamos la vista autobus.jade y le pasamos atributo autobus que son las rows
         res.render('autobus/autobus', {autobus : autobus});
@@ -21,13 +22,39 @@ module.exports = {
   },
 
   getNuevoAutobus : function(req, res, next){
-    res.render('autobus/nuevo');
+
+    var config = require('.././database/config');
+    var db = mysql.createConnection(config);
+    db.connect();
+
+    db.query('SELECT * from conductor', function(err, rows, fields){
+        if(err) throw err;
+        var conductor = rows;
+        // console.log(autobus);
+
+        db.query('SELECT * from monitor;', function(err, rows, fields){
+            if(err) throw err;
+            var monitor = rows;
+
+            db.query('SELECT * from ruta;', function(err, rows, fields){
+                if(err) throw err;
+                var ruta = rows;
+                // console.log(monitor);
+                // console.log(conductor);
+                // console.log(ruta);
+                db.end();
+                res.render('autobus/nuevo', {monitor : monitor, conductor : conductor, ruta : ruta});
+            });
+
+        });
+    });
 
   },
 
   postNuevoAutobus : function(req, res, next){
     var fechaactual = new Date();
     var fecha = dateFormat(fechaactual, 'yyyy-mm-dd h:MM:ss');
+    console.log(req.body)
 
     var autobus = {
       matricula : req.body.matricula,
@@ -43,7 +70,7 @@ module.exports = {
       if(err) throw err;
       db.end();
     });
-    res.render('autobus/nuevo', {info : 'Autobus creado correctamente'});
+    res.render('autobus/nuevo', {info : 'Autobus creado correctamente', ruta : autobus.idruta, monitor : autobus.idmonitor, conductor : autobus.idconductor});
     // console.log(autobus);
 },
   eliminarAutobus : function(req, res, next){
@@ -72,12 +99,34 @@ module.exports = {
 
     var autobus = null;
 
-    db.query('SELECT * FROM autobus where id = ?',id,function(err,rows,fields){
+    db.query('SELECT * FROM autobus a, conductor c, monitor m, ruta r where a.id = ? and a.idruta=r.idruta and a.idmonitor = m.idmonitor and a.idconductor = c.idconductor ',id,function(err,rows,fields){
       if(err) throw err;
 
-      autobus = rows;
-      db.end();
-      res.render('autobus/modificar', {autobus: autobus});
+      var autobus = rows;
+
+      db.query('SELECT * from conductor', function(err, rows, fields){
+          if(err) throw err;
+          var conductor = rows;
+          // console.log(autobus);
+
+          db.query('SELECT * from monitor;', function(err, rows, fields){
+              if(err) throw err;
+              var monitor = rows;
+
+              db.query('SELECT * from ruta;', function(err, rows, fields){
+                  if(err) throw err;
+                  var ruta = rows;
+                  // console.log(autobus)
+                  // console.log(autobus[0].idruta)
+                  // console.log(autobus[0].nombreRuta)
+
+                  db.end();
+                  res.render('autobus/modificar', {autobus: autobus, ruta:ruta, monitor:monitor, conductor:conductor});
+                });
+
+            });
+        });
+
     });
   },
 
@@ -90,6 +139,7 @@ module.exports = {
       idconductor : req.body.idconductor,
       idmonitor : req.body.idmonitor
     };
+    // console.log(autobus)
     var config = require('.././database/config');
 
     var db = mysql.createConnection(config);

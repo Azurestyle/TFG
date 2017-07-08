@@ -22,10 +22,10 @@ block content
             tr
               td(id='id')= bus.id
               td= bus.matricula
-              td= bus.idruta
+              td= bus.nombreRuta
               td= bus.capacidad
-              td= bus.idconductor
-              td= bus.idmonitor
+              td= bus.nombreConductor
+              td= bus.nombreMonitor
               td
                 a(class=['ui button basic icon '] href='/modificar/'+bus.id data-inverted='' data-tooltip='Modificar' data-position='top center')
                   i(class=['write icon blue'])
