@@ -3,23 +3,23 @@ div(class=['ui', 'pointing', 'menu'] id="menuDesplegable")
   div(class=['ui', 'dropdown', 'item'])= 'Autobus'
     i(class=['dropdown', 'icon'])
     div(class='menu')
-      a(class='item' href='/nuevo')= 'Nuevo Autobús'
       a(class='item' href='/autobus')= 'Listar autobuses'
+      a(class='item' href='/nuevo')= 'Nuevo Autobús'
   div(class=['ui', 'dropdown', 'item'])= 'Conductor'
     i(class=['dropdown', 'icon'])
     div(class='menu')
-      a(class='item' href='#')= 'Nuevo Conductor'
-      a(class='item' href='#')= 'Listar conductores'
+      a(class='item' href='/conductor')= 'Listar conductores'
+      a(class='item' href='/nuevoConductor')= 'Nuevo Conductor'
   div(class=['ui', 'dropdown', 'item'])= 'Monitor'
     i(class=['dropdown', 'icon'])
     div(class='menu')
-      a(class='item' href='#')= 'Nuevo Monitor'
       a(class='item' href='#')= 'Listar monitores'
+      a(class='item' href='#')= 'Nuevo Monitor'
   div(class=['ui', 'dropdown', 'item'])= 'Rutas'
     i(class=['dropdown', 'icon'])
     div(class='menu')
-      a(class='item' href='#')= 'Nueva Ruta'
       a(class='item' href='#')= 'Listar rutas'  
+      a(class='item' href='#')= 'Nueva Ruta'
 
     //- div(class=['right', 'menu'])
     //-   div(class='item')

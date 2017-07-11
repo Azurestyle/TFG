@@ -15,6 +15,13 @@ router.post('/eliminarautobus', controllers.autobuscontroller.eliminarAutobus);
 router.get('/modificar/:id', controllers.autobuscontroller.getModificarAutobus);
 router.post('/editar', controllers.autobuscontroller.postModificarAutobus);
 
+//rutas para conductor
+router.get('/conductor', controllers.conductorcontroller.getConductor);
+router.get('/nuevoConductor', controllers.conductorcontroller.getNuevoConductor);
+router.post('/crearConductor', controllers.conductorcontroller.postNuevoConductor);
+router.post('/eliminarConductor', controllers.conductorcontroller.eliminarConductor);
+router.get('/modificarConductor/:idconductor', controllers.conductorcontroller.getModificarConductor);
+router.post('/editarConductor', controllers.conductorcontroller.postModificarConductor);
 
 
 module.exports = router;

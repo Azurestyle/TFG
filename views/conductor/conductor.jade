@@ -1,0 +1,31 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['sixteen','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Lista de conductores'
+      
+      table(class=['ui','table','celled'] id='tbl-conductor')
+        thead
+          tr
+            th= 'ID'
+            th= 'Nombre'
+            th= 'Teléfono'
+            th= 'Acciones'
+            
+        tbody
+          each con in conductor
+            tr
+              td(id='id')= con.idconductor
+              td= con.nombreConductor
+              td= con.telefonoConductor
+              
+              td
+                a(class=['ui button basic icon '] href='/modificarConductor/'+con.idconductor data-inverted='' data-tooltip='Modificar' data-position='top center')
+                  i(class=['write icon blue'])
+                  
+                a(class=['ui button basic icon '] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                  i(class=['trash icon red'])
+                  
+  script(src="/javascripts/conductor.js")

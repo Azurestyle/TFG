@@ -5,7 +5,7 @@ module.exports = {
 
   //funciones del controladores
   index : function(req, res, next){
-    res.render('index', {title : 'Bienvenido al crud'});
+    res.render('index', {title : 'Autobús CP'});
   }
 
 }

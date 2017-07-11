@@ -1,0 +1,27 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['ten','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Crear Conductor'
+      
+      div(class='form-nuevoconductor')
+        form(class=['ui','form'] action='/crearConductor' method='post')
+          div(class=['ui','field'])
+            label(for='nombreConductor')= 'Nombre'
+            input(type='text' name="nombreConductor" placeholder='Nombre')
+        
+          div(class=['ui','field'])
+            label(for='telefonoConductor')= 'Teléfono'
+            input(type='text' name="telefonoConductor" placeholder='Teléfono')
+
+          button(class=['ui','button','basic','black'])= 'Crear Conductor'
+          div(class=['ui','message','error'])
+      
+      if info != undefined
+        div(class=['ui','message','success'])
+          i(class=['close','icon'])
+          div(class='header')= 'Conductor registrado'
+          p= info
+  //- script(src='/javascripts/validacion.js')
