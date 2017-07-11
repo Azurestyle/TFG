@@ -1,0 +1,31 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['ten','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Modificar Monitor'
+      
+      div(class='form-nuevomonitor')
+        form(class=['ui','form'] action='/editarMonitor' method='post')
+          div(class=['ui','field'])
+            label(for='nombreMonitor')= 'Nombre'
+            input(type='text' name="nombreMonitor" placeholder='Nombre' value=monitor[0].nombreMonitor)
+          
+          div(class=['ui','field'])
+            label(for='email')= 'Email'
+            input(type='text' name="email" placeholder='Email' value=monitor[0].email)
+            
+          div(class=['ui','field'])
+            label(for='telefonoMonitor')= 'Email'
+            input(type='text' name="telefonoMonitor" placeholder='Teléfono' value=monitor[0].telefonoMonitor)
+            
+            
+            
+            
+            input(type='hidden' name="idmonitor" value=monitor[0].idmonitor)
+          button(class=['ui','button','basic','black'])= 'Modificar Autobus'
+          div(class=['ui','message','error'])
+      
+    
+  //- script(src='/javascripts/validacion.js')

@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 var dateFormat = require('dateformat');
-//autobus controller
+//monitor controller
 
 module.exports = {
 
@@ -55,7 +55,7 @@ module.exports = {
       if(err) throw err;
       db.end();
     });
-    res.render('conductor/nuevoConductor', {info : 'conductor creado correctamente', conductor : conductor});
+    res.render('conductor/nuevoConductor', {info : 'Conductor creado correctamente', conductor : conductor});
     // console.log(conductor);
 },
   eliminarConductor : function(req, res, next){

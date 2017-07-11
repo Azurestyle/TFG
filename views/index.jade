@@ -6,3 +6,8 @@ block content
     div(class=['ten','wide','column'])
       h3(class=['ui','header','blue'])= 'TFG Autobús'
   
+      div(id="map" style="width:400px;height:400px;background:yellow")
+    
+  script(src='/javascripts/googleMap.js')
+  script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC06gfUvlrhKBwtFx9j9w90BWIwFqZXWzY&callback=myMap')
+  

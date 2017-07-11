@@ -23,5 +23,13 @@ router.post('/eliminarConductor', controllers.conductorcontroller.eliminarConduc
 router.get('/modificarConductor/:idconductor', controllers.conductorcontroller.getModificarConductor);
 router.post('/editarConductor', controllers.conductorcontroller.postModificarConductor);
 
+//rutas para monitor
+router.get('/monitor', controllers.monitorcontroller.getMonitor);
+router.get('/nuevoMonitor', controllers.monitorcontroller.getNuevoMonitor);
+router.post('/crearMonitor', controllers.monitorcontroller.postNuevoMonitor);
+router.post('/eliminarMonitor', controllers.monitorcontroller.eliminarMonitor);
+router.get('/modificarMonitor/:idmonitor', controllers.monitorcontroller.getModificarMonitor);
+router.post('/editarMonitor', controllers.monitorcontroller.postModificarMonitor);
+
 
 module.exports = router;
