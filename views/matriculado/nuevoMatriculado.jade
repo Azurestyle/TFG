@@ -1,0 +1,66 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['ten','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Crear Matriculado'
+      
+      div(class='form-nuevomatriculado')
+        form(class=['ui','form'] action='/crearMatriculado' method='post')
+          div(class=['ui','field'])
+            label(for='primer_nombre')= 'Nombre'
+            input(type='text' name="primer_nombre" placeholder='Nombre')
+            
+          div(class=['ui','field'])
+            label(for='segundo_nombre')= 'Nombre 2º'
+            input(type='text' name="segundo_nombre" placeholder='Nombre 2º')
+            
+          div(class=['ui','field'])
+            label(for='apellido_paterno')= 'Apellido P'
+            input(type='text' name="apellido_paterno" placeholder='Apellido P')
+            
+          div(class=['ui','field'])
+            label(for='apellido_materno')= 'Apellido M'
+            input(type='text' name="apellido_materno" placeholder='Apellido M')
+            
+          div(class=['ui','field'])
+            label(for='dni')= 'Dni'
+            input(type='text' name="dni" placeholder='Dni')
+          
+          div(class=['ui','field'])
+            label(for='idruta')= 'Ruta'
+            select(class=['ui', 'dropdown'] name="idruta")
+              option(value="" disabled selected hidden)= 'Ruta'
+              each ru in ruta
+                option(value=ru.idruta)= ru.nombreRuta
+            //- input(type='text' name="idruta" placeholder='Ruta')
+        
+          div(class=['ui','field'])
+            label(for='idcursoescolar')= 'Curso'
+            select(class=['ui', 'dropdown'] name="idcursoescolar")
+              option(value="" disabled selected hidden)= 'Curso'
+              each cur in cursoescolar
+                option(value=cur.idcursoescolar)= cur.nombrecurso
+            //- input(type='text' name="idconductor" placeholder='Conductor')
+          div(class=['ui','field'])
+            label(for='estado')= 'Estado'
+            input(type='text' name="estado" placeholder='Estado')
+            
+          div(class=['ui','field'])
+            label(for='idrutaIda')= 'Estado'
+            input(type='text' name="idrutaIda" placeholder='Ruta Ida')
+            
+          div(class=['ui','field'])
+            label(for='idrutaVuelta')= 'Estado'
+            input(type='text' name="idrutaVuelta" placeholder='Ruta Vuelta')
+            //- input(type='text' name="idmonitor" placeholder='Monitor')
+          button(class=['ui','button','basic','black'])= 'Crear Matriculado'
+          div(class=['ui','message','error'])
+      
+      if info != undefined
+        div(class=['ui','message','success'])
+          i(class=['close','icon'])
+          div(class='header')= 'Matriculado registrado'
+          p= info
+  script(src='/javascripts/validacion.js')

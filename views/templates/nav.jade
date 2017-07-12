@@ -1,25 +1,35 @@
 div(class=['ui', 'pointing', 'menu'] id="menuDesplegable")
   a(class=['item'] href='/')= 'Inicio'
+  
   div(class=['ui', 'dropdown', 'item'])= 'Autobus'
     i(class=['dropdown', 'icon'])
     div(class='menu')
       a(class='item' href='/autobus')= 'Listar autobuses'
       a(class='item' href='/nuevo')= 'Nuevo Autobús'
+  
   div(class=['ui', 'dropdown', 'item'])= 'Conductor'
     i(class=['dropdown', 'icon'])
     div(class='menu')
       a(class='item' href='/conductor')= 'Listar conductores'
       a(class='item' href='/nuevoConductor')= 'Nuevo Conductor'
+  
   div(class=['ui', 'dropdown', 'item'])= 'Monitor'
     i(class=['dropdown', 'icon'])
     div(class='menu')
       a(class='item' href='/monitor')= 'Listar monitores'
       a(class='item' href='/nuevoMonitor')= 'Nuevo Monitor'
+  
   div(class=['ui', 'dropdown', 'item'])= 'Rutas'
     i(class=['dropdown', 'icon'])
     div(class='menu')
       a(class='item' href='/ruta')= 'Listar rutas'  
       a(class='item' href='/nuevaRuta')= 'Nueva Ruta'
+  
+  div(class=['ui', 'dropdown', 'item'])= 'Matriculados'
+    i(class=['dropdown', 'icon'])
+    div(class='menu')
+      a(class='item' href='/matriculado')= 'Listar matriculados'  
+      a(class='item' href='/nuevoMatriculado')= 'Nuevo alumno'
 
     //- div(class=['right', 'menu'])
     //-   div(class='item')

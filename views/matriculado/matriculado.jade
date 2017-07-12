@@ -1,0 +1,46 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['sixteen','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Lista de matriculados'
+      
+      table(class=['ui','table','celled'] id='tbl-matriculado')
+        thead
+          tr
+            th= 'ID'
+            th= 'Nombre'
+            th= 'Nombre 2º'
+            th= 'Apellido P'
+            th= 'Apellido M'
+            th= 'Dni'
+            th= 'Ruta'
+            th= 'Curso Escolar'
+            th= 'Estado'
+            th= 'Ruta Ida'
+            th= 'Ruta Vuelta'
+            th= 'Acciones'
+            
+        tbody
+          each mat in matriculado
+            tr
+              td(id='id')= mat.idmatriculado
+              td= mat.primer_nombre
+              td= mat.segundo_nombre
+              td= mat.apellido_paterno
+              td= mat.apellido_materno
+              td= mat.dni
+              td= mat.nombreRuta
+              td= mat.nombrecurso
+              td= mat.estado
+              td= mat.idrutaIda
+              td= mat.idrutaVuelta
+              td
+                a(class=['ui button basic icon '] href='/modificarMatriculado/'+mat.idmatriculado data-inverted='' data-tooltip='Modificar' data-position='top center')
+                  i(class=['write icon blue'])
+                  
+                a(class=['ui button basic icon '] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                  i(class=['trash icon red'])
+                  
+  script(src="/javascripts/autobus.js")

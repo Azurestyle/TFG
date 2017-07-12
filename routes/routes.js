@@ -39,5 +39,13 @@ router.post('/eliminarRuta', controllers.rutacontroller.eliminarRuta);
 router.get('/modificarRuta/:idruta', controllers.rutacontroller.getModificarRuta);
 router.post('/editarRuta', controllers.rutacontroller.postModificarRuta);
 
+//rutas para matriculado
+router.get('/matriculado', controllers.matriculadocontroller.getMatriculado);
+router.get('/nuevoMatriculado', controllers.matriculadocontroller.getNuevoMatriculado);
+router.post('/crearMatriculado', controllers.matriculadocontroller.postNuevoMatriculado);
+router.post('/eliminarMatriculado', controllers.matriculadocontroller.eliminarMatriculado);
+router.get('/modificarMatriculado/:idmatriculado', controllers.matriculadocontroller.getModificarMatriculado);
+router.post('/editarMatriculado', controllers.matriculadocontroller.postModificarMatriculado);
+
 
 module.exports = router;
