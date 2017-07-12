@@ -54,7 +54,6 @@ module.exports = {
   postNuevoAutobus : function(req, res, next){
     var fechaactual = new Date();
     var fecha = dateFormat(fechaactual, 'yyyy-mm-dd h:MM:ss');
-    console.log(req.body)
 
     var autobus = {
       matricula : req.body.matricula,
@@ -62,7 +61,7 @@ module.exports = {
       capacidad : req.body.capacidad,
       idconductor : req.body.idconductor,
       idmonitor : req.body.idmonitor
-    }
+    };
     var config = require('.././database/config');
     var db = mysql.createConnection(config);
     db.connect();

@@ -31,5 +31,13 @@ router.post('/eliminarMonitor', controllers.monitorcontroller.eliminarMonitor);
 router.get('/modificarMonitor/:idmonitor', controllers.monitorcontroller.getModificarMonitor);
 router.post('/editarMonitor', controllers.monitorcontroller.postModificarMonitor);
 
+//rutas para ruta
+router.get('/ruta', controllers.rutacontroller.getRuta);
+router.get('/nuevaRuta', controllers.rutacontroller.getNuevaRuta);
+router.post('/crearRuta', controllers.rutacontroller.postNuevoRuta);
+router.post('/eliminarRuta', controllers.rutacontroller.eliminarRuta);
+router.get('/modificarRuta/:idruta', controllers.rutacontroller.getModificarRuta);
+router.post('/editarRuta', controllers.rutacontroller.postModificarRuta);
+
 
 module.exports = router;
