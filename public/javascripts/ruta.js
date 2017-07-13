@@ -23,4 +23,29 @@ $(function(){
     }
 
   });
+
+  $('#tbl-ruta #email').click(function(e) {
+    e.preventDefault();
+    var elemento = $(this);
+    var id = elemento.parent().parent().find('#id').text();
+
+
+    var confirmar = confirm('¿Desea mandar un aviso de atasco a los padres de los alumnos?')
+
+    if(confirmar){
+      $.ajax({
+        url : '/enviarMail',
+        method : 'post',
+        data : {idruta : id},
+        success : function(res){
+            if(res.res){
+              alert("Mail mandando correctamente");
+            }
+        }
+      });
+    }
+
+  });
+
+
 });

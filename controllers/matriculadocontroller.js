@@ -96,7 +96,7 @@ module.exports = {
 
     var matriculado = null;
 
-    db.query('SELECT * FROM matriculado m, ruta r, cursoescolar c,  where m.idmatriculado = ? and m.idruta=r.idruta and m.idcursoescolar = c.idcursoescolar',id,function(err,rows,fields){
+    db.query('SELECT * FROM matriculado m, ruta r, cursoescolar c  where m.idmatriculado = ? and m.idruta=r.idruta and m.idcursoescolar = c.idcursoescolar',id,function(err,rows,fields){
       if(err) throw err;
 
       var matriculado = rows;

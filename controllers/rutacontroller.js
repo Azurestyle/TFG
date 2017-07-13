@@ -119,7 +119,51 @@ module.exports = {
     res.redirect('/ruta');
 
 
-  }
+  },
+
+  enviarMail : function(req, res, next){
+      var id = req.body.idruta;
+      // console.log(id)
+      // console.log(req.body);
+      var config = require('.././database/config');
+      var db = mysql.createConnection(config);
+      db.connect();
+      var respuesta = {res: false};
+      db.query('SELECT p.email, r.nombreRuta, m.primer_nombre FROM ruta r, matriculado m, pariente p WHERE r.idruta = ? AND r.idruta = m.idruta AND m.idmatriculado = p.idmatriculado', id, function(err,rows,fields){
+        if(err) throw err;
+        db.end();
+        var nodemailer = require('nodemailer');
+
+        var transporter = nodemailer.createTransport({
+          service: 'Gmail',
+          auth: {
+            user: 'aplicacionautobustfg@gmail.com',
+            pass: 'manolo17'
+          }
+        });
+
+        var mailOptions = {
+          from: 'AplicacionAutobus',
+          to: rows[0].email,
+          subject: 'Atasco en la ruta '+rows[0].nombreRuta,
+          text: 'Hola, le informo de que el autobus que lleva al alumno '+rows[0].primer_nombre+' se ha retrasado debido a un atasco, disculpen las molestias.'
+        };
+        transporter.sendMail(mailOptions, function(error, info){
+          if (error){
+            console.log(error);
+            res.send(500, err.message);
+          } else {
+            console.log("Email Enviado");
+            res.status(200).jsonp(req.body);
+          }
+        });
+        respuesta.res = true;
+        res.json(respuesta);
+
+      });
+    // console.log(ruta.email);
+
+  },
 
 
 }

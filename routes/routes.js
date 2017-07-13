@@ -38,6 +38,7 @@ router.post('/crearRuta', controllers.rutacontroller.postNuevoRuta);
 router.post('/eliminarRuta', controllers.rutacontroller.eliminarRuta);
 router.get('/modificarRuta/:idruta', controllers.rutacontroller.getModificarRuta);
 router.post('/editarRuta', controllers.rutacontroller.postModificarRuta);
+router.post('/enviarMail', controllers.rutacontroller.enviarMail);
 
 //rutas para matriculado
 router.get('/matriculado', controllers.matriculadocontroller.getMatriculado);

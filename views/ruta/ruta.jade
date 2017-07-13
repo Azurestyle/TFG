@@ -10,6 +10,7 @@ block content
         thead
           tr
             th= 'ID'
+            th= 'Enviar Correo'
             th= 'Nombre'
             th= 'Paradas'
             th= 'Ruta Ida'
@@ -20,6 +21,10 @@ block content
           each ru in ruta
             tr
               td(id='id')= ru.idruta
+              td(width="10%" class=['center aligned'])
+                a(class=['ui button basic icon '] href='#' data-inverted='' data-tooltip='Informar de atasco' data-position='top center' id='email')
+                  i(class=['mail center icon white'])
+                
               td= ru.nombreRuta
               td= ru.numParadas
               td= ru.idrutaIda
