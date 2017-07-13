@@ -141,12 +141,14 @@ module.exports = {
             pass: 'manolo17'
           }
         });
+        for (row in rows) {
+
 
         var mailOptions = {
           from: 'AplicacionAutobus',
-          to: rows[0].email,
-          subject: 'Atasco en la ruta '+rows[0].nombreRuta,
-          text: 'Hola, le informo de que el autobus que lleva al alumno '+rows[0].primer_nombre+' se ha retrasado debido a un atasco, disculpen las molestias.'
+          to: rows[row].email,
+          subject: 'Atasco en la ruta '+rows[row].nombreRuta,
+          text: 'Hola, le informo de que el autobús que lleva al alumno '+rows[row].primer_nombre+' se ha retrasado debido a un atasco, disculpe las molestias.'
         };
         transporter.sendMail(mailOptions, function(error, info){
           if (error){
@@ -157,6 +159,8 @@ module.exports = {
             res.status(200).jsonp(req.body);
           }
         });
+
+        }
         respuesta.res = true;
         res.json(respuesta);
 
