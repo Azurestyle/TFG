@@ -1,0 +1,76 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['ten','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Modificar Alumno'
+      
+      div(class='form-nuevomatriculado')
+        form(class=['ui','form'] action='/editarMatriculado' method='post')
+          div(class=['ui','field'])
+            label(for='primer_nombre')= 'Nombre'
+            input(type='text' name="primer_nombre" placeholder='Nombre' value=matriculado[0].primer_nombre)
+          
+          div(class=['ui','field'])
+            label(for='segundo_nombre')= 'Nombre 2º'
+            input(type='text' name="segundo_nombre" placeholder='Nombre 2º' value=matriculado[0].segundo_nombre)
+            
+            
+          div(class=['ui','field'])
+            label(for='apellido_paterno')= 'Apellido P'
+            input(type='text' name="apellido_paterno" placeholder='Apellido P' value=matriculado[0].apellido_paterno)
+            
+          div(class=['ui','field'])
+            label(for='apellido_materno')= 'Apellido M'
+            input(type='text' name="apellido_materno" placeholder='Apellido M' value=matriculado[0].apellido_materno)    
+            
+          div(class=['ui','field'])
+            label(for='dni')= 'Dni'
+            input(type='text' name="dni" placeholder='Dni' value=matriculado[0].dni)
+            
+          div(class=['ui','field'])
+            label(for='idruta')= 'Ruta'
+            select(class=['ui', 'dropdown'] name="idruta")
+              option(value=matriculado[0].idruta selected hidden)= matriculado[0].nombreRuta
+              each ru in ruta
+                if matriculado[0].idruta != ru.idruta
+                  option(value=ru.idruta)= ru.nombreRuta
+                  
+                  
+          div(class=['ui','field'])
+            label(for='idcursoescolar')= 'Curso'
+            select(class=['ui', 'dropdown'] name="idcursoescolar")
+              option(value=matriculado[0].idcursoescolar selected hidden)= matriculado[0].nombrecurso
+              each cur in cursoescolar
+                if matriculado[0].idcursoescolar != cur.idcursoescolar
+                  option(value=cur.idcursoescolar)= cur.nombrecurso
+                
+                
+          div(class=['ui','field'])
+            label(for='estado')= 'Estado'
+            input(type='text' name="estado" placeholder='Estado' value=matriculado[0].estado)
+                
+          div(class=['ui','field'])
+            label(for='idrutaIda')= 'Ruta Ida'
+            select(class=['ui', 'dropdown'] name="idrutaIda")
+              option(value=matriculado[0].rutaIda selected hidden)= matriculado[0].nombreRutaIda
+              each ruI in rutaida
+                if matriculado[0].rutaIda != ruI.idrutaIda
+                  option(value=ruI.idrutaIda)= ruI.nombreRutaIda
+                  
+          div(class=['ui','field'])
+            label(for='idrutaVuelta')= 'Ruta Vuelta'
+            select(class=['ui', 'dropdown'] name="idrutaVuelta")
+              option(value=matriculado[0].rutaVuelta selected hidden)= matriculado[0].nombreRutaVuelta
+              each ruV in rutavuelta
+                if matriculado[0].rutaVuelta != ruV.idrutaVuelta
+                  option(value=ruV.idrutaVuelta)= ruV.nombreRutaVuelta
+  
+            
+            input(type='hidden' name="idmatriculado" value=matriculado[0].idmatriculado)
+          button(class=['ui','button','basic','black'])= 'Modificar Alumno'
+          div(class=['ui','message','error'])
+      
+    
+  //- script(src='/javascripts/validacion.js')

@@ -48,13 +48,19 @@ block content
             input(type='text' name="estado" placeholder='Estado')
             
           div(class=['ui','field'])
-            label(for='idrutaIda')= 'Estado'
-            input(type='text' name="idrutaIda" placeholder='Ruta Ida')
+            label(for='idrutaIda')= 'Ruta Ida'
+            select(class=['ui', 'dropdown'] name="idrutaIda")
+              option(value="" disabled selected hidden)= 'Ruta Ida'
+              each ruI in rutaida
+                option(value=ruI.idrutaIda)= ruI.nombreRutaIda
             
           div(class=['ui','field'])
-            label(for='idrutaVuelta')= 'Estado'
-            input(type='text' name="idrutaVuelta" placeholder='Ruta Vuelta')
-            //- input(type='text' name="idmonitor" placeholder='Monitor')
+            label(for='idrutaVuelta')= 'Ruta Vuelta'
+            select(class=['ui', 'dropdown'] name="idrutaVuelta")
+              option(value="" disabled selected hidden)= 'Ruta Vuelta'
+              each ruV in rutavuelta
+                option(value=ruV.idrutaVuelta)= ruV.nombreRutaVuelta
+                
           button(class=['ui','button','basic','black'])= 'Crear Matriculado'
           div(class=['ui','message','error'])
       
@@ -63,4 +69,4 @@ block content
           i(class=['close','icon'])
           div(class='header')= 'Matriculado registrado'
           p= info
-  script(src='/javascripts/validacion.js')
+  //- script(src='/javascripts/validacion.js')

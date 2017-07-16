@@ -18,11 +18,25 @@ block content
             
           div(class=['ui','field'])
             label(for='idrutaIda')= 'Ruta Ida'
-            input(type='text' name="idrutaIda" placeholder='Ruta Ida')
-            
+            select(class=['ui', 'dropdown'] name="idrutaIda")
+              option(value="" disabled selected hidden)= 'Ruta Ida'
+              each ruI in rutaida
+                option(value=ruI.idrutaIda)= ruI.nombreRutaIda
+                
           div(class=['ui','field'])
             label(for='idrutaVuelta')= 'Ruta Vuelta'
-            input(type='text' name="idrutaVuelta" placeholder='Ruta Vuelta')
+            select(class=['ui', 'dropdown'] name="idrutaVuelta")
+              option(value="" disabled selected hidden)= 'Ruta Vuelta'
+              each ruV in rutavuelta
+                option(value=ruV.idrutaVuelta)= ruV.nombreRutaVuelta
+            
+          //- div(class=['ui','field'])
+          //-   label(for='idrutaIda')= 'Ruta Ida'
+          //-   input(type='text' name="idrutaIda" placeholder='Ruta Ida')
+          //-   
+          //- div(class=['ui','field'])
+          //-   label(for='idrutaVuelta')= 'Ruta Vuelta'
+          //-   input(type='text' name="idrutaVuelta" placeholder='Ruta Vuelta')
             
           button(class=['ui','button','basic','black'])= 'Crear Ruta'
           div(class=['ui','message','error'])

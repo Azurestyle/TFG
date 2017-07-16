@@ -18,14 +18,20 @@ block content
             
           div(class=['ui','field'])
             label(for='idrutaIda')= 'Ruta Ida'
-            input(type='text' name="idrutaIda" placeholder='Ruta Ida' value=ruta[0].idrutaIda)
-          
+            select(class=['ui', 'dropdown'] name="idrutaIda")
+              option(value=ruta[0].idrutaIda selected hidden)= ruta[0].nombreRutaIda
+              each ruI in rutaida
+                if ruta[0].idrutaIda != ruI.idrutaIda
+                  option(value=ruI.idrutaIda)= ruI.nombreRutaIda
+                  
           div(class=['ui','field'])
             label(for='idrutaVuelta')= 'Ruta Vuelta'
-            input(type='text' name="idrutaVuelta" placeholder='Ruta Vuelta' value=ruta[0].idrutaVuelta)
-            
-            
-            
+            select(class=['ui', 'dropdown'] name="idrutaVuelta")
+              option(value=ruta[0].idrutaVuelta selected hidden)= ruta[0].nombreRutaVuelta
+              each ruV in rutavuelta
+                if ruta[0].idrutaVuelta != ruV.idrutaVuelta
+                  option(value=ruV.idrutaVuelta)= ruV.nombreRutaVuelta
+  
             
             input(type='hidden' name="idruta" value=ruta[0].idruta)
           button(class=['ui','button','basic','black'])= 'Modificar Ruta'

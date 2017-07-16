@@ -34,8 +34,8 @@ block content
               td= mat.nombreRuta
               td= mat.nombrecurso
               td= mat.estado
-              td= mat.idrutaIda
-              td= mat.idrutaVuelta
+              td= mat.nombreRutaIda
+              td= mat.nombreRutaVuelta
               td
                 a(class=['ui button basic icon '] href='/modificarMatriculado/'+mat.idmatriculado data-inverted='' data-tooltip='Modificar' data-position='top center')
                   i(class=['write icon blue'])
@@ -43,4 +43,4 @@ block content
                 a(class=['ui button basic icon '] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
                   i(class=['trash icon red'])
                   
-  script(src="/javascripts/autobus.js")
+  script(src="/javascripts/matriculado.js")

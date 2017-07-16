@@ -11,10 +11,10 @@ module.exports = {
     db.connect();
 
     var ruta = null;
-    db.query('SELECT * FROM ruta', function(err, rows, fields){
+    db.query('SELECT * FROM ruta r, rutaida r2, rutavuelta r3 where r.idrutaIda = r2.idrutaIda and r.idrutaVuelta = r3.idrutaVuelta', function(err, rows, fields){
         if(err) throw err;
         ruta = rows;
-        // console.log(ruta);
+        console.log(ruta);
         db.end();
         //renderizamos la vista ruta.jade y le pasamos atributo ruta que son las rows
         res.render('ruta/ruta', {ruta : ruta});
@@ -27,14 +27,24 @@ module.exports = {
     var db = mysql.createConnection(config);
     db.connect();
 
+    db.query('SELECT * from rutaida;', function(err, rows, fields){
+        if(err) throw err;
+        var rutaida = rows;
+
+        db.query('SELECT * from rutavuelta;', function(err, rows, fields){
+            if(err) throw err;
+            var rutavuelta = rows;
+
 
     db.query('SELECT * from ruta;', function(err, rows, fields){
         if(err) throw err;
         var ruta = rows;
 
         db.end();
-        res.render('ruta/nuevaRuta', {ruta : ruta});
+        res.render('ruta/nuevaRuta', {ruta : ruta, rutaida : rutaida, rutavuelta : rutavuelta});
 
+    });
+    });
     });
 
   },
@@ -55,7 +65,7 @@ module.exports = {
       if(err) throw err;
       db.end();
     });
-    res.render('ruta/nuevaRuta', {info : 'Ruta creada correctamente',});
+    res.render('ruta/nuevaRuta', {info : 'Ruta creada correctamente', rutaida : ruta.idrutaIda, rutavuelta : ruta.idrutaVuelta});
     // console.log(ruta);
 },
   eliminarRuta : function(req, res, next){
@@ -84,15 +94,23 @@ module.exports = {
 
     var ruta = null;
 
-    db.query('SELECT * FROM ruta where idruta = ?',id,function(err,rows,fields){
+    db.query('SELECT * FROM ruta r, rutaida r2, rutavuelta r3 where r.idruta = ? and r.idrutaIda = r2.idrutaIda and r.idrutaVuelta = r3.idrutaVuelta ',id,function(err,rows,fields){
       if(err) throw err;
 
       var ruta = rows;
 
+      db.query('SELECT * from rutaida', function(err, rows, fields){
+          if(err) throw err;
+          var rutaida = rows;
+
+          db.query('SELECT * from rutavuelta', function(err, rows, fields){
+              if(err) throw err;
+              var rutavuelta = rows;
+              // console.log(autobus);
       db.end();
-      res.render('ruta/modificarRuta', {ruta: ruta});
-
-
+      res.render('ruta/modificarRuta', {ruta: ruta, rutaida : rutaida, rutavuelta : rutavuelta});
+      });
+      });
     });
   },
 
@@ -105,7 +123,10 @@ module.exports = {
       idrutaVuelta : req.body.idrutaVuelta
 
     };
-    // console.log(ruta)
+
+
+    console.log(ruta);
+    console.log(req.body);
     var config = require('.././database/config');
 
     var db = mysql.createConnection(config);
