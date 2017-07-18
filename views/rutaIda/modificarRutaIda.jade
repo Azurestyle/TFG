@@ -1,0 +1,26 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['ten','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Modificar RutaIda'
+      
+      div(class='form-nuevarutaida')
+        form(class=['ui','form'] action='/editarRutaIda' method='post')
+          div(class=['ui','field'])
+            label(for='nombreRutaIda')= 'Nombre'
+            input(type='text' name="nombreRutaIda" placeholder='Nombre' value=rutaIda[0].nombreRutaIda)
+          
+          div(class=['ui','field'])
+            label(for='numParadasIda')= 'Teléfono'
+            input(type='text' name="numParadasIda" placeholder='Teléfono' value=rutaIda[0].numParadasIda)
+            
+        
+            
+            input(type='hidden' name="idrutaIda" value=rutaIda[0].idrutaIda)
+          button(class=['ui','button','basic','black'])= 'Modificar Ruta de Ida'
+          div(class=['ui','message','error'])
+      
+    
+  //- script(src='/javascripts/validacion.js')

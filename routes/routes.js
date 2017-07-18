@@ -48,5 +48,23 @@ router.post('/eliminarMatriculado', controllers.matriculadocontroller.eliminarMa
 router.get('/modificarMatriculado/:idmatriculado', controllers.matriculadocontroller.getModificarMatriculado);
 router.post('/editarMatriculado', controllers.matriculadocontroller.postModificarMatriculado);
 
+//rutas para rutaIda
+router.get('/rutaIda', controllers.rutaIdacontroller.getRutaIda);
+router.get('/nuevaRutaIda', controllers.rutaIdacontroller.getNuevaRutaIda);
+router.post('/crearRutaIda', controllers.rutaIdacontroller.postNuevoRutaIda);
+router.post('/eliminarRutaIda', controllers.rutaIdacontroller.eliminarRutaIda);
+router.get('/modificarRutaIda/:idrutaIda', controllers.rutaIdacontroller.getModificarRutaIda);
+router.post('/editarRutaIda', controllers.rutaIdacontroller.postModificarRutaIda);
+
+
+//rutas para rutaVuelta
+router.get('/rutavuelta', controllers.rutaVueltacontroller.getRutaVuelta);
+router.get('/nuevaRutaVuelta', controllers.rutaVueltacontroller.getNuevaRutaVuelta);
+router.post('/crearRutaVuelta', controllers.rutaVueltacontroller.postNuevoRutaVuelta);
+router.post('/eliminarRutaVuelta', controllers.rutaVueltacontroller.eliminarRutaVuelta);
+router.get('/modificarRutaVuelta/:idrutaVuelta', controllers.rutaVueltacontroller.getModificarRutaVuelta);
+router.post('/editarRutaVuelta', controllers.rutaVueltacontroller.postModificarRutaVuelta);
+
+
 
 module.exports = router;

@@ -1,0 +1,31 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['sixteen','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Lista de rutas de vuelta'
+      
+      table(class=['ui','table','celled'] id='tbl-rutaVuelta')
+        thead
+          tr
+            th= 'ID'
+            th= 'Nombre'
+            th= 'Paradas Vuelta'
+            th= 'Acciones'
+            
+        tbody
+          each ruV in rutaVuelta
+            tr
+              td(id='id')= ruV.idrutaVuelta
+              td= ruV.nombreRutaVuelta
+              td= ruV.numParadasVuelta
+              
+              td
+                a(class=['ui button basic icon '] href='/modificarRutaVuelta/'+ruV.idrutaVuelta data-inverted='' data-tooltip='Modificar' data-position='top center')
+                  i(class=['write icon blue'])
+                  
+                a(class=['ui button basic icon '] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                  i(class=['trash icon red'])
+                  
+  script(src="/javascripts/rutaVuelta.js")

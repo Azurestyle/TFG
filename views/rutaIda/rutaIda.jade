@@ -1,0 +1,31 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['sixteen','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Lista de rutas de ida'
+      
+      table(class=['ui','table','celled'] id='tbl-rutaIda')
+        thead
+          tr
+            th= 'ID'
+            th= 'Nombre'
+            th= 'Paradas Ida'
+            th= 'Acciones'
+            
+        tbody
+          each ruI in rutaIda
+            tr
+              td(id='id')= ruI.idrutaIda
+              td= ruI.nombreRutaIda
+              td= ruI.numParadasIda
+              
+              td
+                a(class=['ui button basic icon '] href='/modificarRutaIda/'+ruI.idrutaIda data-inverted='' data-tooltip='Modificar' data-position='top center')
+                  i(class=['write icon blue'])
+                  
+                a(class=['ui button basic icon '] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                  i(class=['trash icon red'])
+                  
+  script(src="/javascripts/rutaIda.js")
