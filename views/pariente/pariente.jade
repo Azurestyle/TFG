@@ -1,0 +1,36 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['sixteen','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Lista de parientes'
+      
+      table(class=['ui','table','celled'] id='tbl-pariente')
+        thead
+          tr
+            th= 'ID'
+            th= 'Nombre'
+            th= 'Foto'
+            th= 'Hijo/a'
+            th= 'Email'
+            th= 'Teléfono'
+            th= 'Acciones'
+            
+        tbody
+          each par in pariente
+            tr  
+              td(id='id')= par.idpariente        
+              td= par.nombre
+              td= par.foto
+              td= par.primer_nombre
+              td= par.email
+              td= par.telefono
+              td
+                a(class=['ui button basic icon '] href='/modificarPariente/'+par.idpariente data-inverted='' data-tooltip='Modificar' data-position='top center')
+                  i(class=['write icon blue'])
+                  
+                a(class=['ui button basic icon '] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                  i(class=['trash icon red'])
+                  
+  script(src="/javascripts/pariente.js")

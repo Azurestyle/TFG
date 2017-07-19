@@ -1,0 +1,45 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['ten','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Modificar Pariente'
+      
+      div(class='form-nuevopariente')
+        form(class=['ui','form'] action='/editarPariente' method='post')
+          div(class=['ui','field'])
+            label(for='nombre')= 'Nombre'
+            input(type='text' name="nombre" placeholder='Nombre' value=pariente[0].nombre)
+          
+          div(class=['ui','field'])
+            label(for='foto')= 'Foto'
+            input(type='text' name="foto" placeholder='Foto' value=pariente[0].foto)
+            
+          div(class=['ui','field'])
+            label(for='idmatriculado')= 'Hijo/a'
+            select(class=['ui', 'dropdown'] name="idmatriculado")
+              option(value=pariente[0].idmatriculado selected hidden)= pariente[0].primer_nombre
+              each mat in matriculado
+                if pariente[0].idmatriculado != mat.idmatriculado
+                  option(value=mat.idmatriculado)= mat.primer_nombre
+          
+          div(class=['ui','field'])
+            label(for='email')= 'Email'
+            input(type='text' name="email" placeholder='Email' value=pariente[0].email)
+            
+          div(class=['ui','field'])
+            label(for='telefono')= 'Telefono'
+            input(type='text' name="telefono" placeholder='Telefono' value=pariente[0].telefono)
+            
+            
+                  
+          
+  
+            
+            input(type='hidden' name="idpariente" value=pariente[0].idpariente)
+          button(class=['ui','button','basic','black'])= 'Modificar Pariente'
+          div(class=['ui','message','error'])
+      
+    
+  //- script(src='/javascripts/validacion.js')

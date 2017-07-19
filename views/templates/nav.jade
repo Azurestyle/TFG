@@ -48,6 +48,12 @@ div(class=['ui', 'pointing', 'menu'] id="menuDesplegable")
     div(class='menu')
       a(class='item' href='/cursoescolar')= 'Listar cursos'
       a(class='item' href='/nuevoCursoescolar')= 'Nuevo Curso'
+      
+  div(class=['ui', 'dropdown', 'item'])= 'Parientes'
+    i(class=['dropdown', 'icon'])
+    div(class='menu')
+      a(class='item' href='/pariente')= 'Listar parientes'
+      a(class='item' href='/nuevoPariente')= 'Nuevo Pariente'
   
     //- div(class=['right', 'menu'])
     //-   div(class='item')
