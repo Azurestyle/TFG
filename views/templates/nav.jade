@@ -42,6 +42,12 @@ div(class=['ui', 'pointing', 'menu'] id="menuDesplegable")
     div(class='menu')
       a(class='item' href='/rutaVuelta')= 'Listar Rutas de Vuelta'  
       a(class='item' href='/nuevaRutaVuelta')= 'Nueva Ruta de Vuelta'
+      
+  div(class=['ui', 'dropdown', 'item'])= 'Cursos'
+    i(class=['dropdown', 'icon'])
+    div(class='menu')
+      a(class='item' href='/cursoescolar')= 'Listar cursos'
+      a(class='item' href='/nuevoCursoescolar')= 'Nuevo Curso'
   
     //- div(class=['right', 'menu'])
     //-   div(class='item')

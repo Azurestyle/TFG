@@ -65,6 +65,13 @@ router.post('/eliminarRutaVuelta', controllers.rutaVueltacontroller.eliminarRuta
 router.get('/modificarRutaVuelta/:idrutaVuelta', controllers.rutaVueltacontroller.getModificarRutaVuelta);
 router.post('/editarRutaVuelta', controllers.rutaVueltacontroller.postModificarRutaVuelta);
 
+//rutas para cursoescolar
+router.get('/cursoescolar', controllers.cursoescolarcontroller.getCursoescolar);
+router.get('/nuevoCursoescolar', controllers.cursoescolarcontroller.getNuevoCursoescolar);
+router.post('/crearCursoescolar', controllers.cursoescolarcontroller.postNuevoCursoescolar);
+router.post('/eliminarCursoescolar', controllers.cursoescolarcontroller.eliminarCursoescolar);
+router.get('/modificarCursoescolar/:idcursoescolar', controllers.cursoescolarcontroller.getModificarCursoescolar);
+router.post('/editarCursoescolar', controllers.cursoescolarcontroller.postModificarCursoescolar);
 
 
 module.exports = router;

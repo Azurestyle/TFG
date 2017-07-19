@@ -1,0 +1,32 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['sixteen','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Lista de Cursos'
+      
+      table(class=['ui','table','celled'] id='tbl-cursoescolar')
+        thead
+          tr
+            th= 'ID'
+            th= 'Curso'
+            th= 'Clase'
+            th= 'Acciones'
+            
+        tbody
+          each cur in cursoescolar
+            tr
+              td(id='id')= cur.idcursoescolar
+              td= cur.nombrecurso
+              td= cur.clase
+              
+              
+              td
+                a(class=['ui button basic icon '] href='/modificarCursoescolar/'+cur.idcursoescolar data-inverted='' data-tooltip='Modificar' data-position='top center')
+                  i(class=['write icon blue'])
+                  
+                a(class=['ui button basic icon '] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                  i(class=['trash icon red'])
+                  
+  script(src="/javascripts/cursoescolar.js")
