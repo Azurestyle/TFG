@@ -7,7 +7,7 @@ block content
       h2(class=['ui','header','blue','dividing'])= 'Modificar Pariente'
       
       div(class='form-nuevopariente')
-        form(class=['ui','form'] action='/editarPariente' method='post')
+        form( enctype='multipart/form-data' class=['ui','form'] action='/editarPariente' method='post')
           div(class=['ui','field'])
             label(for='nombre')= 'Nombre'
             input(type='text' name="nombre" placeholder='Nombre' value=pariente[0].nombre)
@@ -36,7 +36,7 @@ block content
                   
           
   
-            
+            input(type='hidden' name="filename" value=pariente[0].file)
             input(type='hidden' name="idpariente" value=pariente[0].idpariente)
           button(class=['ui','button','basic','black'])= 'Modificar Pariente'
           div(class=['ui','message','error'])

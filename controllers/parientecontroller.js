@@ -1,5 +1,14 @@
 var mysql = require('mysql');
 var dateFormat = require('dateformat');
+var multer= require("multer");
+var storage = multer.diskStorage({
+   destination: function(req, file, callback) {
+       callback(null, 'uploads/')
+},
+   filename: function(req, file, callback) {
+       callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+}
+});
 //pariente controller
 
 module.exports = {
@@ -115,16 +124,17 @@ module.exports = {
     //recuperar pariente
     var pariente = {
       nombre : req.body.nombre,
-      foto : req.body.foto,
+      foto : req.file.filename,
       idmatriculado : req.body.idmatriculado,
       email : req.body.email,
       telefono : req.body.telefono
 
     };
-
-
-    console.log(pariente);
     console.log(req.body);
+    console.log(pariente);
+    console.log(req.file);
+    // var upload = multer({storage: storage}).single('foto');
+
     var config = require('.././database/config');
 
     var db = mysql.createConnection(config);

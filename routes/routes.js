@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 // exporto funciones de controller/index.js
 var controllers = require('.././controllers');
+var express=require("express");
+var multer= require("multer");
+var upload= multer({dest:"uploads/"});
 
 
 //llamo a home controller y a la funcion index
@@ -79,7 +82,7 @@ router.get('/nuevoPariente', controllers.parientecontroller.getNuevoPariente);
 router.post('/crearPariente', controllers.parientecontroller.postNuevoPariente);
 router.post('/eliminarPariente', controllers.parientecontroller.eliminarPariente);
 router.get('/modificarPariente/:idpariente', controllers.parientecontroller.getModificarPariente);
-router.post('/editarPariente', controllers.parientecontroller.postModificarPariente);
+router.post('/editarPariente',upload.single('foto'), controllers.parientecontroller.postModificarPariente);
 
 
 module.exports = router;

@@ -22,7 +22,9 @@ block content
             tr  
               td(id='id')= par.idpariente        
               td= par.nombre
-              td= par.foto
+              td
+                img(class=['ui', 'tiny', 'circular', 'centered','image'] src="static/"+par.foto)
+              
               td= par.primer_nombre
               td= par.email
               td= par.telefono
