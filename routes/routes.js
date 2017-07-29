@@ -79,7 +79,7 @@ router.post('/editarCursoescolar', controllers.cursoescolarcontroller.postModifi
 //rutas para pariente
 router.get('/pariente', controllers.parientecontroller.getPariente);
 router.get('/nuevoPariente', controllers.parientecontroller.getNuevoPariente);
-router.post('/crearPariente', controllers.parientecontroller.postNuevoPariente);
+router.post('/crearPariente', upload.single('foto'), controllers.parientecontroller.postNuevoPariente);
 router.post('/eliminarPariente', controllers.parientecontroller.eliminarPariente);
 router.get('/modificarPariente/:idpariente', controllers.parientecontroller.getModificarPariente);
 router.post('/editarPariente',upload.single('foto'), controllers.parientecontroller.postModificarPariente);

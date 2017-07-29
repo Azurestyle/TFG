@@ -14,6 +14,7 @@ block content
           
           div(class=['ui','field'])
             label(for='foto')= 'Foto'
+            input(type='hidden' name="namefile" placeholder='namefile' value=pariente[0].foto)
             input(type='file' name="foto" placeholder='Foto' value=pariente[0].foto)
             
           div(class=['ui','field'])

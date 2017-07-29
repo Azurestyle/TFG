@@ -60,12 +60,13 @@ module.exports = {
 
     var pariente = {
       nombre : req.body.nombre,
-      foto : req.body.foto,
+      foto : req.file.filename,
       idmatriculado : req.body.idmatriculado,
       email : req.body.email,
       telefono : req.body.telefono
 
     };
+    
     var config = require('.././database/config');
     var db = mysql.createConnection(config);
     db.connect();
@@ -106,7 +107,8 @@ module.exports = {
       if(err) throw err;
 
       var pariente = rows;
-
+      console.log(pariente);
+      console.log(pariente[0].foto);
       db.query('SELECT * from matriculado', function(err, rows, fields){
           if(err) throw err;
           var matriculado = rows;
@@ -124,15 +126,17 @@ module.exports = {
     //recuperar pariente
     var pariente = {
       nombre : req.body.nombre,
-      foto : req.file.filename,
+      foto : req.body.namefile,
       idmatriculado : req.body.idmatriculado,
       email : req.body.email,
       telefono : req.body.telefono
 
     };
-    console.log(req.body);
-    console.log(pariente);
-    console.log(req.file);
+    if(typeof req.file !== "undefined") pariente.foto = req.file.filename;
+
+    // console.log(req.body);
+    // console.log(pariente);
+    // console.log(req.file);
     // var upload = multer({storage: storage}).single('foto');
 
     var config = require('.././database/config');
