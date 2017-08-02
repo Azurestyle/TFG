@@ -1,0 +1,47 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['sixteen','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Lista de paradas'
+      
+      table(class=['ui','table','single', 'line', 'celled'] id='tbl-parada')
+        thead
+          tr
+            th= 'ID'
+            th= 'Nombre'
+            th= 'Ruta'
+            th= 'Ruta Ida'
+            th= 'Ruta Vuelta'
+            th= 'Tiempo'
+            th= 'Coordenadas'
+            th= 'horaIdaLlegada'
+            th= 'horaIdaSalida'
+            th= 'horaVueltaLlegada'
+            th= 'horaVueltaSalida'
+            th= 'Acciones'
+            
+        tbody
+          each par in parada
+            tr
+              td(id='id')= par.idparada   
+              td= par.nombreParada           
+              td= par.nombreRuta
+              td= par.nombreRutaIda
+              td= par.nombreRutaVuelta
+              td= par.tiempoparada
+              td= par.coordenadas
+              td= par.horaIdaLlegada
+              td= par.horaIdaSalida
+              td= par.horaVueltaLlegada
+              td= par.horaVueltaSalida
+              
+              td
+                a(class=['ui button basic icon '] href='/modificarParada/'+par.idparada data-inverted='' data-tooltip='Modificar' data-position='top center')
+                  i(class=['write icon blue'])
+                  
+                a(class=['ui button basic icon '] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                  i(class=['trash icon red'])
+                  
+  script(src="/javascripts/parada.js")

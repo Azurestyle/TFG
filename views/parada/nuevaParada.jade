@@ -1,0 +1,74 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['ten','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Crear Parada'
+      
+      div(class='form-nuevaparada')
+        form(class=['ui','form'] action='/crearParada' method='post')
+          div(class=['ui','field'])
+            label(for='nombreParada')= 'Nombre'
+            input(type='text' name="nombreParada" placeholder='Nombre')
+            
+          div(class=['ui','field'])
+            label(for='idruta')= 'Ruta'
+            select(class=['ui', 'dropdown'] name="idruta")
+              option(value="" disabled selected hidden)= 'Ruta'
+              each ru in ruta
+                option(value=ru.idruta)= ru.nombreRuta
+            
+          div(class=['ui','field'])
+            label(for='idrutaIda')= 'Ruta Ida'
+            select(class=['ui', 'dropdown'] name="idrutaIda")
+              option(value="" disabled selected hidden)= 'Ruta Ida'
+              each ruI in rutaida
+                option(value=ruI.idrutaIda)= ruI.nombreRutaIda
+                
+          div(class=['ui','field'])
+            label(for='idrutaVuelta')= 'Ruta Vuelta'
+            select(class=['ui', 'dropdown'] name="idrutaVuelta")
+              option(value="" disabled selected hidden)= 'Ruta Vuelta'
+              each ruV in rutavuelta
+                option(value=ruV.idrutaVuelta)= ruV.nombreRutaVuelta
+                
+                        
+                  
+                  
+          div(class=['ui','field'])
+            label(for='tiempoparada')= 'Tiempo'
+            input(type='number' name="tiempoparada" placeholder='Tiempo')
+                    
+                    
+          div(class=['ui','field'])
+            label(for='coordenadas')= 'Coordenadas'
+            input(type='number' step='any' name="coordenadas" placeholder='Coordenadas')
+                      
+          div(class=['ui','field'])
+            label(for='horaIdaLlegada')= 'Hora Ida Llegada'
+            input(type='time' name="horaIdaLlegada" placeholder='Hora Ida L')
+                        
+          div(class=['ui','field'])
+            label(for='horaIdaSalida')= 'Hora Ida Salida'
+            input(type='time' name="horaIdaSalida" placeholder='Hora Ida S')
+            
+          div(class=['ui','field'])
+            label(for='horaVueltaLlegada')= 'Hora Vuelta Llegada'
+            input(type='time' name="horaVueltaLlegada" placeholder='Hora Vuelta L')
+            
+          div(class=['ui','field'])
+            label(for='horaVueltaSalida')= 'Hora Vuelta Salida'
+            input(type='time' name="horaVueltaSalida" placeholder='Hora Vuelta S')
+            
+          
+            
+          button(class=['ui','button','basic','black'])= 'Crear Parada'
+          div(class=['ui','message','error'])
+      
+      if info != undefined
+        div(class=['ui','message','success'])
+          i(class=['close','icon'])
+          div(class='header')= 'Parada registrada'
+          p= info
+  //- script(src='/javascripts/validacion.js')

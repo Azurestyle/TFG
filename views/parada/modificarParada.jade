@@ -1,0 +1,71 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['ten','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Modificar Parada'
+      
+      div(class='form-nuevaruta')
+        form(class=['ui','form'] action='/editarParada' method='post')
+          div(class=['ui','field'])
+            label(for='nombreParada')= 'Nombre'
+            input(type='text' name="nombreParada" placeholder='Nombre' value=parada[0].nombreParada)
+          
+          div(class=['ui','field'])
+            label(for='idruta')= 'Ruta'
+            select(class=['ui', 'dropdown'] name="idruta")
+              option(value=parada[0].idruta selected hidden)= parada[0].nombreRuta
+              each ru in ruta
+                if parada[0].idruta != ru.idruta
+                  option(value=ru.idruta)= ru.nombreRuta
+            
+          div(class=['ui','field'])
+            label(for='idrutaIda')= 'Ruta Ida'
+            select(class=['ui', 'dropdown'] name="idrutaIda")
+              option(value=parada[0].idrutaIda selected hidden)= parada[0].nombreRutaIda
+              each ruI in rutaida
+                if parada[0].idrutaIda != ruI.idrutaIda
+                  option(value=ruI.idrutaIda)= ruI.nombreRutaIda
+                  
+          div(class=['ui','field'])
+            label(for='idrutaVuelta')= 'Ruta Vuelta'
+            select(class=['ui', 'dropdown'] name="idrutaVuelta")
+              option(value=parada[0].idrutaVuelta selected hidden)= parada[0].nombreRutaVuelta
+              each ruV in rutavuelta
+                if parada[0].idrutaVuelta != ruV.idrutaVuelta
+                  option(value=ruV.idrutaVuelta)= ruV.nombreRutaVuelta
+                  
+                  
+          div(class=['ui','field'])
+            label(for='tiempoparada')= 'Tiempo'
+            input(type='number' name="tiempoparada" value=parada[0].tiempoparada)
+                    
+                    
+          div(class=['ui','field'])
+            label(for='coordenadas')= 'Coordenadas'
+            input(type='number' step='any' name="coordenadas" value=parada[0].coordenadas)
+                      
+          div(class=['ui','field'])
+            label(for='horaIdaLlegada')= 'Hora Ida Llegada'
+            input(type='time' name="horaIdaLlegada" value=parada[0].horaIdaLlegada)
+                        
+          div(class=['ui','field'])
+            label(for='horaIdaSalida')= 'Hora Ida Salida'
+            input(type='time' name="horaIdaSalida" value=parada[0].horaIdaSalida)
+            
+          div(class=['ui','field'])
+            label(for='horaVueltaLlegada')= 'Hora Vuelta Llegada'
+            input(type='time' name="horaVueltaLlegada" value=parada[0].horaVueltaLlegada)
+            
+          div(class=['ui','field'])
+            label(for='horaVueltaSalida')= 'Hora Vuelta Salida'
+            input(type='time' name="horaVueltaSalida" value=parada[0].horaVueltaSalida )
+  
+            
+            input(type='hidden' name="idparada" value=parada[0].idparada)
+          button(class=['ui','button','basic','black'])= 'Modificar Parada'
+          div(class=['ui','message','error'])
+      
+    
+  //- script(src='/javascripts/validacion.js')

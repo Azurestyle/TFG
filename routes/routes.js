@@ -85,4 +85,13 @@ router.get('/modificarPariente/:idpariente', controllers.parientecontroller.getM
 router.post('/editarPariente',upload.single('foto'), controllers.parientecontroller.postModificarPariente);
 
 
+//rutas para parada
+router.get('/parada', controllers.paradacontroller.getParada);
+router.get('/nuevaParada', controllers.paradacontroller.getNuevaParada);
+router.post('/crearParada', controllers.paradacontroller.postNuevoParada);
+router.post('/eliminarParada', controllers.paradacontroller.eliminarParada);
+router.get('/modificarParada/:idparada', controllers.paradacontroller.getModificarParada);
+router.post('/editarParada', controllers.paradacontroller.postModificarParada);
+
+
 module.exports = router;
