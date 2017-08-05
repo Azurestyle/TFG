@@ -4,8 +4,21 @@ block content
   include ../templates/nav
   div(class=['ui','container','grid','stackable'])
     div(class=['sixteen','wide','column'])
-      h2(class=['ui','header','blue','dividing'])= 'Lista de autobuses'
       
+      h2(class=['ui','header','blue','dividing'])= 'Lista de autobuses'
+      div(class=['ui','form'])
+        div(class=['ui','four','fields'])
+          div(class=['ui','field'])
+            input(type='text' name="filtro" onkeyup="myFunction()" placeholder='Filtrar por matricula' id="filtro")
+          div(class=['ui','field'])
+            input(type='text' name="filtro" onkeyup="myFunction2()" placeholder='Filtrar por ruta' id="filtroRuta")
+            
+          div(class=['ui','field'])
+            input(type='text' name="filtro" onkeyup="myFunction3()" placeholder='Filtrar por monitor' id="filtroConductor")
+            
+          div(class=['ui','field'])
+            input(type='text' name="filtro" onkeyup="myFunction4()" placeholder='Filtrar por conductor' id="filtroMonitor")
+        
       table(class=['ui','table','celled'] id='tbl-autobus')
         thead
           tr
@@ -32,5 +45,5 @@ block content
                   
                 a(class=['ui button basic icon '] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
                   i(class=['trash icon red'])
-                  
+  //- script(src="/javascripts/filtro.js")
   script(src="/javascripts/autobus.js")

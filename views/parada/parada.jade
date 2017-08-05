@@ -6,6 +6,15 @@ block content
     div(class=['sixteen','wide','column'])
       h2(class=['ui','header','blue','dividing'])= 'Lista de paradas'
       
+      div(class=['ui','form'])
+        div(class=['ui','two','fields'])
+          div(class=['ui','field'])
+            input(type='text' name="filtro" onkeyup="myFunction()" placeholder='Filtrar por nombre' id="filtro")
+          div(class=['ui','field'])
+            input(type='text' name="filtro" onkeyup="myFunction2()" placeholder='Filtrar por ruta' id="filtroRuta")
+            
+          
+      
       table(class=['ui','table','single', 'line', 'celled'] id='tbl-parada')
         thead
           tr

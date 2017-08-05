@@ -5,7 +5,15 @@ block content
   div(class=['ui','container','grid','stackable'])
     div(class=['sixteen','wide','column'])
       h2(class=['ui','header','blue','dividing'])= 'Lista de monitores'
-      
+      div(class=['ui','form'])
+        div(class=['ui','two','fields'])
+          div(class=['ui','field'])
+            input(type='text' name="filtro" onkeyup="myFunction()" placeholder='Filtrar por nombre' id="filtro")
+            
+          div(class=['ui','field'])
+            input(type='text' name="filtro" onkeyup="myFunction2()" placeholder='Filtrar por correo' id="filtroMail")
+            
+        
       table(class=['ui','table','celled'] id='tbl-monitor')
         thead
           tr

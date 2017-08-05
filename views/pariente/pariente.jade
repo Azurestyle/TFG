@@ -5,6 +5,17 @@ block content
   div(class=['ui','container','grid','stackable'])
     div(class=['sixteen','wide','column'])
       h2(class=['ui','header','blue','dividing'])= 'Lista de parientes'
+      div(class=['ui','form'])
+        div(class=['ui','three','fields'])
+          div(class=['ui','field'])
+            input(type='text' name="filtro" onkeyup="myFunction()" placeholder='Filtrar por nombre' id="filtro")
+          div(class=['ui','field'])
+            input(type='text' name="filtro" onkeyup="myFunction2()" placeholder='Filtrar por hijo' id="filtroHijo")
+            
+          div(class=['ui','field'])
+            input(type='text' name="filtro" onkeyup="myFunction3()" placeholder='Filtrar por correo' id="filtroCorreo")
+            
+          
       
       table(class=['ui','table','celled'] id='tbl-pariente')
         thead

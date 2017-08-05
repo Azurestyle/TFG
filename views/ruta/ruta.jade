@@ -5,6 +5,10 @@ block content
   div(class=['ui','container','grid','stackable'])
     div(class=['sixteen','wide','column'])
       h2(class=['ui','header','blue','dividing'])= 'Lista de rutas'
+      div(class=['ui','form'])
+        div(class=['ui'])
+          div(class=['ui','field'])
+            input(type='text' name="filtro" onkeyup="myFunction()" placeholder='Filtrar por nombre' id="filtro")
       
       table(class=['ui','table','celled'] id='tbl-ruta')
         thead
