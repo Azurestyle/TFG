@@ -1,69 +1,89 @@
-div(class=['ui', 'pointing', 'menu'] id="menuDesplegable")
-  a(class=['item'] href='/')= 'Inicio'
+div(class=['ui','menu'] style='background-color:#EDEDED;')
+  a(class='item' id="desplegar")
+    
+    i(class=['block','layout', 'icon'])
+    span= 'Menú'
   
-  div(class=['ui', 'dropdown', 'item'])= 'Autobus'
-    i(class=['dropdown', 'icon'])
-    div(class='menu')
+    //#004d66 azul
+    //#181c20 negro
+div(class=['ui', 'sidebar','inverted', 'vertical', 'menu'] style='background-color: #2A3F54;' id="menuDesplegable")
+  a(href='/')
+    img(class=['ui', 'tiny', 'inverted', 'circular', 'centered','image']  style='background-color:white; margin-top:3em; ' src="images/autobus.png")
+  
+  a(class=['item'] href='/' style='margin-top:2em;')= 'Inicio'
+  
+  div(class=['ui','accordion','fluid','item',])
+    div(class=['ui','title'])= 'Autobus'
+      i(class=['bus','icon'] style='float:right;')
+    div(class='content')
       a(class='item' href='/autobus')= 'Listar autobuses'
       a(class='item' href='/nuevo')= 'Nuevo Autobús'
   
-  div(class=['ui', 'dropdown', 'item'])= 'Conductor'
-    i(class=['dropdown', 'icon'])
-    div(class='menu')
-      a(class='item' href='/conductor')= 'Listar conductores'
-      a(class='item' href='/nuevoConductor')= 'Nuevo Conductor'
   
-  div(class=['ui', 'dropdown', 'item'])= 'Monitor'
-    i(class=['dropdown', 'icon'])
-    div(class='menu')
+  div(class=['ui','accordion','fluid','item',])
+    div(class=['ui','title'])= 'Conductor'
+      i(class=['spy','icon'] style='float:right;')
+    div(class='content')
+      a(class='item' href='/conductor')= 'Listar conductores'
+      a(class='item' href='/nuevoConductor')= 'Nuevo Conductor'  
+    
+    
+  div(class=['ui','accordion','fluid','item',])
+    div(class=['ui','title'])= 'Monitor'
+      i(class=['doctor','icon'] style='float:right;')
+    div(class='content')
       a(class='item' href='/monitor')= 'Listar monitores'
       a(class='item' href='/nuevoMonitor')= 'Nuevo Monitor'
-  
-  div(class=['ui', 'dropdown', 'item'])= 'Rutas'
-    i(class=['dropdown', 'icon'])
-    div(class='menu')
+      
+  div(class=['ui','accordion','fluid','item',])
+    div(class=['ui','title'])= 'Rutas'
+      i(class=['map','icon'] style='float:right;')
+    div(class='content')
       a(class='item' href='/ruta')= 'Listar rutas'  
       a(class='item' href='/nuevaRuta')= 'Nueva Ruta'
-  
-  div(class=['ui', 'dropdown', 'item'])= 'Matriculados'
-    i(class=['dropdown', 'icon'])
-    div(class='menu')
+      
+  div(class=['ui','accordion','fluid','item',])
+    div(class=['ui','title'])= 'Matriculados'
+      i(class=['student','icon'] style='float:right;')
+    div(class='content')
       a(class='item' href='/matriculado')= 'Listar matriculados'  
-      a(class='item' href='/nuevoMatriculado')= 'Nuevo alumno'
+      a(class='item' href='/nuevoMatriculado')= 'Nuevo alumno'   
 
-  div(class=['ui', 'dropdown', 'item'])= 'Ruta Ida'
-    i(class=['dropdown', 'icon'])
-    div(class='menu')
+  div(class=['ui','accordion','fluid','item',])
+    div(class=['ui','title'])= 'Ruta Ida'
+      i(class=['marker','icon'] style='float:right;')
+    div(class='content')
       a(class='item' href='/rutaIda')= 'Listar Rutas de Ida'  
       a(class='item' href='/nuevaRutaIda')= 'Nueva Ruta de Ida'
       
-  div(class=['ui', 'dropdown', 'item'])= 'Ruta Vuelta'
-    i(class=['dropdown', 'icon'])
-    div(class='menu')
+  div(class=['ui','accordion','fluid','item',])
+    div(class=['ui','title'])= 'Ruta Vuelta'
+      i(class=['marker','icon'] style='float:right;')
+    div(class='content')
       a(class='item' href='/rutaVuelta')= 'Listar Rutas de Vuelta'  
       a(class='item' href='/nuevaRutaVuelta')= 'Nueva Ruta de Vuelta'
-      
-  div(class=['ui', 'dropdown', 'item'])= 'Cursos'
-    i(class=['dropdown', 'icon'])
-    div(class='menu')
+
+  div(class=['ui','accordion','fluid','item',])
+    div(class=['ui','title'])= 'Cursos'
+      i(class=['university','icon'] style='float:right;')
+    div(class='content')
       a(class='item' href='/cursoescolar')= 'Listar cursos'
       a(class='item' href='/nuevoCursoescolar')= 'Nuevo Curso'
       
-  div(class=['ui', 'dropdown', 'item'])= 'Parientes'
-    i(class=['dropdown', 'icon'])
-    div(class='menu')
+      
+  div(class=['ui','accordion','fluid','item',])
+    div(class=['ui','title'])= 'Parientes'
+      i(class=['users','icon'] style='float:right;')
+    div(class='content')
       a(class='item' href='/pariente')= 'Listar parientes'
       a(class='item' href='/nuevoPariente')= 'Nuevo Pariente'
       
-  div(class=['ui', 'dropdown', 'item'])= 'Paradas'
-    i(class=['dropdown', 'icon'])
-    div(class='menu')
+      
+  div(class=['ui','accordion','fluid','item',])
+    div(class=['ui','title'])= 'Paradas'
+      i(class=['map signs','icon'] style='float:right;')
+    div(class='content')
       a(class='item' href='/parada')= 'Listar Paradas'
       a(class='item' href='/nuevaParada')= 'Nueva Parada'
-  
-    //- div(class=['right', 'menu'])
-    //-   div(class='item')
-    //-     div(class=['ui', 'transparent', 'icon', 'input'])
-    //-       input(type='text' placeholder='Buscar...')
-    //-       i(class=['search', 'link', 'icon'])
+      
     

@@ -2,11 +2,52 @@ extends default
 
 block content
   include templates/nav
-  div(class=['ui','container','grid','stackable'])
-    div(class=['ten','wide','column'])
-      h3(class=['ui','header','blue'])= 'TFG Autobús'
-  
-      div(id="map" style="width:400px;height:400px;background:yellow")
+  div(class=['ui','container','grid','stackable'] style="overflow:auto;")
+    div(class=['ten','wide','column'] style="float:left;")
+      h2(class=['ui','header','blue'])= 'Panel de control'
+      
+      div(class=['ui','header'])
+        a(class=['ui'] href='/autobus')
+          i(class=['ui','circular', 'bus', 'icon'] style="float:left;")
+        p(class=['ui'])= autobus
+        
+      div(class=['ui','header'])
+        a(class=['ui'] href='/matriculado')
+          i(class=['ui','circular', 'student', 'icon'] style="float:left;")
+        p(class=['ui'])= matriculado
+        
+        
+      div(class=['ui','header'])
+        a(class=['ui'] href='/pariente')
+          i(class=['ui','circular', 'users', 'icon'] style="float:left;")
+        p(class=['ui'])= pariente
+        
+        
+      div(class=['ui','header'])
+        a(class=['ui'] href='/conductor')
+          i(class=['ui','circular', 'spy', 'icon'] style="float:left;")
+        p(class=['ui'])= conductor
+        
+        
+      div(class=['ui','header'])
+        a(class=['ui'] href='/monitor')
+          i(class=['ui','circular', 'doctor', 'icon'] style="float:left;")
+        p(class=['ui'])= monitor
+        
+      div(class=['ui','header'])
+        a(class=['ui'] href='/ruta')
+          i(class=['ui','circular', 'map', 'icon'] style="float:left;")
+        p(class=['ui'])= ruta
+        
+        
+      div(class=['ui','header'])
+        a(class=['ui'] href='/parada')
+          i(class=['ui','circular', 'map signs', 'icon'] style="float:left;")
+        p(class=['ui'])= parada
+
+
+
+    div(id="map" style="width:350px;height:350px;background:yellow;float:right;display:inline-block; margin-top:5em;")
     
   script(src='/javascripts/googleMap.js')
   script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC06gfUvlrhKBwtFx9j9w90BWIwFqZXWzY&callback=myMap')

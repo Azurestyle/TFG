@@ -7,5 +7,12 @@ $(function(){
   .dropdown()
 ;
 
+$('.ui.accordion')
+  .accordion()
+;
+
+$('#desplegar').click(function(event) {
+  $('#menuDesplegable').sidebar('toggle');
+});
 
 });
