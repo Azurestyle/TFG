@@ -4,7 +4,7 @@ block content
   include ../templates/nav
   div(class=['ui','container','grid','stackable'])
     div(class=['ten','wide','column'])
-      h2(class=['ui','header','blue','dividing'])= 'Modificar Autobus'
+      h2(class=['ui','header','blue','dividing'])= 'Modificar Autobús'
       
       div(class='form-nuevoautobus')
         form(class=['ui','form'] action='/editar' method='post')
@@ -40,7 +40,7 @@ block content
                     option(value=mon.idmonitor)= mon.nombreMonitor
               //- input(type='text' name="idmonitor" placeholder='Monitor' value=autobus[0].idmonitor)
               input(type='hidden' name="id" value=autobus[0].id)
-          button(class=['ui','button','basic','black'])= 'Modificar Autobus'
+          button(class=['ui','button','basic','black'])= 'Modificar Autobús'
           div(class=['ui','message','error'])
       
     

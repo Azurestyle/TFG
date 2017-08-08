@@ -4,7 +4,7 @@ block content
   include ../templates/nav
   div(class=['ui','container','grid','stackable'])
     div(class=['ten','wide','column'])
-      h2(class=['ui','header','blue','dividing'])= 'Modificar RutaIda'
+      h2(class=['ui','header','blue','dividing'])= 'Modificar Ruta de Ida'
       
       div(class='form-nuevarutaida')
         form(class=['ui','form'] action='/editarRutaIda' method='post')
@@ -13,8 +13,8 @@ block content
             input(type='text' name="nombreRutaIda" placeholder='Nombre' value=rutaIda[0].nombreRutaIda)
           
           div(class=['ui','field'])
-            label(for='numParadasIda')= 'Teléfono'
-            input(type='text' name="numParadasIda" placeholder='Teléfono' value=rutaIda[0].numParadasIda)
+            label(for='numParadasIda')= 'Paradas Ida'
+            input(type='text' name="numParadasIda" placeholder='Paradas Ida' value=rutaIda[0].numParadasIda)
             
         
             
