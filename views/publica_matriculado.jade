@@ -1,0 +1,13 @@
+extends default
+
+block content
+  include publica_matriculado
+  div(class=['ui','container','grid','stackable'])
+    
+
+
+    div(id="map" style="width:350px;height:350px;background:yellow;float:right;display:inline-block; margin-top:5em;")
+    
+  script(src='/javascripts/googleMap.js')
+  script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC06gfUvlrhKBwtFx9j9w90BWIwFqZXWzY&callback=myMap')
+  

@@ -9,6 +9,7 @@ var upload= multer({dest:"uploads/"});
 
 //llamo a home controller y a la funcion index
 router.get('/', controllers.homecontroller.index);
+router.get('/publica', controllers.homecontroller.publica);
 
 //rutas para autobus
 router.get('/autobus', controllers.autobuscontroller.getAutobus);

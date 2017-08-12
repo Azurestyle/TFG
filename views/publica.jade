@@ -1,0 +1,31 @@
+extends default
+
+block content
+  div(class=['ui','menu'] style='background-color:#EDEDED;')
+  
+    a(class='item' href='/publica')
+      
+      span= 'Inicio'
+  div(class='form-nuevomatriculado')
+    form(class=['ui','form'] action='/publica_matriculado' method='post')
+  
+      div(class=['ui','container','grid','stackable'])
+        div(class=['ten','wide','column'])
+          div(class=['ui','field'])
+            label(for='idruta')
+            select(class=['ui', 'dropdown'] name="idruta")
+              option(value="" disabled selected hidden)= 'Ruta'
+              each ru in ruta
+                option(value=ru.idruta)= ru.nombreRuta
+                
+                
+          button(class=['ui','button','basic','black'])= 'Buscar Alumnos'
+      
+
+
+
+  //-   div(id="map" style="width:350px;height:350px;background:yellow;float:right;display:inline-block; margin-top:5em;")
+  //-   
+  //- script(src='/javascripts/googleMap.js')
+  //- script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC06gfUvlrhKBwtFx9j9w90BWIwFqZXWzY&callback=myMap')
+  
