@@ -5,19 +5,19 @@ block content
   div(class=['ui','container','grid','stackable'])
     div(class=['ten','wide','column'])
       h2(class=['ui','header','blue','dividing'])= 'Modificar Conductor'
-      
+
       div(class='form-nuevoconductor')
         form(class=['ui','form'] action='/editarConductor' method='post')
           div(class=['ui','field'])
             label(for='nombreConductor')= 'Nombre'
             input(type='text' name="nombreConductor" placeholder='Nombre' value=conductor[0].nombreConductor)
-          
+
           div(class=['ui','field'])
             label(for='telefonoConductor')= 'Teléfono'
             input(type='text' name="telefonoConductor" placeholder='Teléfono' value=conductor[0].telefonoConductor)
             input(type='hidden' name="idconductor" value=conductor[0].idconductor)
-          button(class=['ui','button','basic','black'])= 'Modificar Autobus'
+          button(class=['ui','button','basic','black'])= 'Modificar Conductor'
           div(class=['ui','message','error'])
-      
-    
+
+
   //- script(src='/javascripts/validacion.js')

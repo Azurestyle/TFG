@@ -67,6 +67,23 @@ module.exports = {
 
     });
 
-  }
+  },
 
+  publica_matriculado : function(req, res, next){
+    var dni = req.body.dni
+
+    var config = require('.././database/config');
+    var db = mysql.createConnection(config);
+    db.connect();
+    db.query('SELECT * from matriculado where dni = ?;', dni, function(err, rows, fields){
+        if(err) throw err;
+        var matriculado = rows;
+    console.log(matriculado);
+    db.end();
+    res.render('publica_matriculado', {title : 'Autobús CP', matriculado:matriculado});
+
+    });
+
+
+}
 }

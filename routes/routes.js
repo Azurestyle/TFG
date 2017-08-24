@@ -12,6 +12,8 @@ router.get('/', controllers.login.login);
 // router.post('/gestion', controllers.login.login);
 router.get('/gestion', controllers.homecontroller.index);
 router.get('/publica', controllers.homecontroller.publica);
+router.post('/publica_matriculado', controllers.homecontroller.publica_matriculado);
+
 
 //rutas para autobus
 router.get('/autobus', controllers.autobuscontroller.getAutobus);

@@ -5,40 +5,40 @@ block content
   div(class=['ui','container','grid','stackable'])
     div(class=['ten','wide','column'])
       h2(class=['ui','header','blue','dividing'])= 'Crear Autobus'
-      
+
       div(class='form-nuevoautobus')
         form(class=['ui','form'] action='/crearautobus' method='post')
           div(class=['ui','field'])
             label(for='matricula')= 'Matricula'
             input(type='text' name="matricula" placeholder='Matricula')
-          div(class=['ui','two','fields'])
-            div(class=['ui','field'])
-              label(for='idruta')= 'Ruta'
-              select(class=['ui', 'dropdown'] name="idruta")
-                option(value="" disabled selected hidden)= 'Ruta'
-                each ru in ruta
-                  option(value=ru.idruta)= ru.nombreRuta
-              //- input(type='text' name="idruta" placeholder='Ruta')
-            div(class=['ui','field'])
-              label(for='capacidad')= 'Capacidad'
-              input(type='text' name="capacidad" placeholder='Capacidad')
-            div(class=['ui','field'])
-              label(for='idconductor')= 'Conductor'
-              select(class=['ui', 'dropdown'] name="idconductor")
-                option(value="" disabled selected hidden)= 'Conductor'
-                each con in conductor
-                  option(value=con.idconductor)= con.nombreConductor
-              //- input(type='text' name="idconductor" placeholder='Conductor')
-            div(class=['ui','field'])
-              label(for='idmonitor')= 'Monitor'
-              select(class=['ui', 'dropdown'] name="idmonitor")
-                option(value="" disabled selected hidden)= 'Monitor'
-                each mon in monitor
-                  option(value=mon.idmonitor)= mon.nombreMonitor
-              //- input(type='text' name="idmonitor" placeholder='Monitor')
+
+          div(class=['ui','field'])
+            label(for='idruta')= 'Ruta'
+            select(class=['ui', 'dropdown'] name="idruta")
+              option(value="" disabled selected hidden)= 'Ruta'
+              each ru in ruta
+                option(value=ru.idruta)= ru.nombreRuta
+            //- input(type='text' name="idruta" placeholder='Ruta')
+          div(class=['ui','field'])
+            label(for='capacidad')= 'Capacidad'
+            input(type='text' name="capacidad" placeholder='Capacidad')
+          div(class=['ui','field'])
+            label(for='idconductor')= 'Conductor'
+            select(class=['ui', 'dropdown'] name="idconductor")
+              option(value="" disabled selected hidden)= 'Conductor'
+              each con in conductor
+                option(value=con.idconductor)= con.nombreConductor
+            //- input(type='text' name="idconductor" placeholder='Conductor')
+          div(class=['ui','field'])
+            label(for='idmonitor')= 'Monitor'
+            select(class=['ui', 'dropdown'] name="idmonitor")
+              option(value="" disabled selected hidden)= 'Monitor'
+              each mon in monitor
+                option(value=mon.idmonitor)= mon.nombreMonitor
+            //- input(type='text' name="idmonitor" placeholder='Monitor')
           button(class=['ui','button','basic','black'])= 'Crear Autobus'
           div(class=['ui','message','error'])
-      
+
       if info != undefined
         div(class=['ui','message','success'])
           i(class=['close','icon'])

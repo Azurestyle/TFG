@@ -12,14 +12,11 @@ block content
       div(class=['ui','container','grid','stackable'])
         div(class=['ten','wide','column'])
           div(class=['ui','field'])
-            label(for='idruta')
-            select(class=['ui', 'dropdown'] name="idruta")
-              option(value="" disabled selected hidden)= 'Ruta'
-              each ru in ruta
-                option(value=ru.idruta)= ru.nombreRuta
+            label(for='dni')= 'DNI Alumno'
+            input(type='text' name="dni" placeholder='DNI')
                 
                 
-          button(class=['ui','button','basic','black'])= 'Buscar Alumnos'
+          button(class=['ui','button','basic','black'])= 'Buscar Alumno'
       
 
 

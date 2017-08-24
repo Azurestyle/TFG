@@ -1,9 +1,35 @@
 extends default
 
 block content
-  include publica_matriculado
+  div(class=['ui','menu'] style='background-color:#EDEDED;')
+
+    a(class='item' href='/publica')
+      
+      span= 'Inicio'
   div(class=['ui','container','grid','stackable'])
-    
+    div(class=['sixteen','wide','column'])
+      table(class=['ui','table','celled'])
+        thead
+          tr
+            
+            th= 'Nombre'
+            th= 'Nombre 2º'
+            th= 'Apellido P'
+            th= 'Apellido M'
+            th= 'Dni'
+            th= 'Estado'
+            
+        tbody
+          each mat in matriculado
+            tr
+            
+              td= mat.primer_nombre
+              td= mat.segundo_nombre
+              td= mat.apellido_paterno
+              td= mat.apellido_materno
+              td= mat.dni
+              td= mat.estado
+      
 
 
     div(id="map" style="width:350px;height:350px;background:yellow;float:right;display:inline-block; margin-top:5em;")
