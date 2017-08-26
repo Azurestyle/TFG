@@ -4,7 +4,7 @@ var dateFormat = require('dateformat');
 
 module.exports = {
 
-  //funciones del controladores
+  //funciones del controlador
   getAutobus : function(req, res, next){
     var config = require('.././database/config');
     var db = mysql.createConnection(config);
@@ -16,7 +16,7 @@ module.exports = {
         autobus = rows;
         // console.log(autobus);
         db.end();
-        //renderizamos la vista autobus.jade y le pasamos atributo autobus que son las rows
+        //renderizamos la vista autobus.jade y le pasamos el atributo autobus que son las rows
         res.render('autobus/autobus', {autobus : autobus});
     });
   },
