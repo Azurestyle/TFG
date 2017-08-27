@@ -14,7 +14,7 @@ module.exports = {
     db.query('SELECT * FROM autobus a,conductor c, monitor m, ruta r where a.idconductor = c.idconductor and a.idmonitor = m.idmonitor and a.idruta = r.idruta', function(err, rows, fields){
         if(err) throw err;
         autobus = rows;
-        // console.log(autobus);
+        console.log(autobus);
         db.end();
         //renderizamos la vista autobus.jade y le pasamos el atributo autobus que son las rows
         res.render('autobus/autobus', {autobus : autobus});
@@ -39,9 +39,9 @@ module.exports = {
             db.query('SELECT * from ruta;', function(err, rows, fields){
                 if(err) throw err;
                 var ruta = rows;
-                // console.log(monitor);
-                // console.log(conductor);
-                // console.log(ruta);
+                console.log(monitor);
+                console.log(conductor);
+                console.log(ruta);
                 db.end();
                 res.render('autobus/nuevo', {monitor : monitor, conductor : conductor, ruta : ruta});
             });
