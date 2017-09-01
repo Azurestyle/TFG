@@ -24,7 +24,7 @@ block content
             th= 'Estado'
             th= 'Ruta Ida'
             th= 'Ruta Vuelta'
-            th= 'Acciones'
+            th(class=['center','aligned'])= 'Acciones'
             
         tbody
           each mat in matriculado
@@ -42,11 +42,14 @@ block content
               td= mat.nombreRutaVuelta
               td
                 a(class=['ui button basic icon '] href='/modificarMatriculado/'+mat.idmatriculado data-inverted='' data-tooltip='Modificar' data-position='top center')
-                  i(class=['write icon blue'])
+                  i(class=['write icon green'])
                   
                 a(class=['ui button basic icon '] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
                   i(class=['trash icon red'])
                   
+                a(class=['ui button basic icon '] href='#' data-inverted='' data-tooltip='Informar de estado' data-position='top center' id='estado')
+                  i(class=['telegram center icon blue'])
+                
                   
       a(class=['ui', 'button' ] href='/nuevoMatriculado')= 'Nuevo'
       a(class=['ui button'] href='/gestion')= 'Volver'

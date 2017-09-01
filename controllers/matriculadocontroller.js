@@ -135,7 +135,7 @@ module.exports = {
                       // console.log(matriculado)
                       // console.log(matriculado[0].idruta)
                       // console.log(matriculado[0].nombreRuta)
-              
+
               db.end();
               res.render('matriculado/modificarMatriculado', {matriculado: matriculado, ruta : ruta, rutaida:rutaida, rutavuelta : rutavuelta, cursoescolar:cursoescolar});
                 });
@@ -173,6 +173,58 @@ module.exports = {
     // res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
     res.redirect('/matriculado');
 
+
+  },
+
+  enviarNotificacion : function(req, res, next){
+      var id = req.body.idmatriculado;
+
+      var config = require('.././database/config');
+      var db = mysql.createConnection(config);
+      db.connect();
+      var respuesta = {res: false};
+      db.query('SELECT * FROM matriculado WHERE idmatriculado = ?', id, function(err,rows,fields){
+        if(err) throw err;
+        var matriculado = rows;
+        db.query('SELECT * from pariente where idmatriculado = ?;', id, function(err, rows, fields){
+            if(err) throw err;
+            pariente = rows;
+        db.end();
+
+
+        var rexec = require('remote-exec');
+
+
+        var connection_options = {
+            port: 22,
+            username: 'root',
+            password: 'Dx1234!!'
+
+        };
+
+        var hosts = [
+            '81.202.177.112'
+        ];
+
+        var cmds = [
+            './script_telegram.sh '+ pariente[0].nombre + ' "' + "Estado de " + matriculado[0].primer_nombre + ": "
+            + matriculado[0].estado + "." + " Compruebe nuestra aplicación para más información" + '"'
+        ];
+
+        rexec(hosts, cmds, connection_options, function(err){
+            if (err) {
+                console.log(err);
+            } else {
+                console.log('Envío Correcto');
+            }
+        });
+
+        respuesta.res = true;
+        res.json(respuesta);
+
+      });
+      });
+    // console.log(ruta.email);
 
   }
 

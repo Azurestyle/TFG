@@ -55,6 +55,7 @@ router.post('/crearMatriculado', controllers.matriculadocontroller.postNuevoMatr
 router.post('/eliminarMatriculado', controllers.matriculadocontroller.eliminarMatriculado);
 router.get('/modificarMatriculado/:idmatriculado', controllers.matriculadocontroller.getModificarMatriculado);
 router.post('/editarMatriculado', controllers.matriculadocontroller.postModificarMatriculado);
+router.post('/enviarNotificacion', controllers.matriculadocontroller.enviarNotificacion);
 
 //rutas para rutaIda
 router.get('/rutaIda', controllers.rutaIdacontroller.getRutaIda);
